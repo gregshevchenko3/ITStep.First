@@ -1,41 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\public\favicon.ico" />
-    <Content Remove="wwwroot\public\index.html" />
-    <Content Remove="wwwroot\src\App.vue" />
-    <Content Remove="wwwroot\src\assets\logo.png" />
-    <Content Remove="wwwroot\src\assets\logo.svg" />
-    <Content Remove="wwwroot\src\components\HelloWorld.vue" />
-    <Content Remove="wwwroot\src\main.js" />
-    <Content Remove="wwwroot\src\plugins\vuetify.js" />
-    <Content Remove="wwwroot\src\router\index.js" />
-    <Content Remove="wwwroot\src\views\Home.vue" />
-    <Content Remove="wwwroot\src\views\Profile.vue" />
+    <Content Remove="www\public\favicon.ico" />
+    <Content Remove="www\public\index.html" />
+    <Content Remove="www\src\App.vue" />
+    <Content Remove="www\src\assets\logo.png" />
+    <Content Remove="www\src\assets\logo.svg" />
+    <Content Remove="www\src\components\HelloWorld.vue" />
+    <Content Remove="www\src\main.js" />
+    <Content Remove="www\src\plugins\vuetify.js" />
+    <Content Remove="www\src\router\index.js" />
+    <Content Remove="www\src\views\Home.vue" />
+    <Content Remove="www\src\views\Profile.vue" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\.browserslistrc" />
-    <None Include="wwwroot\.eslintrc.js" />
-    <None Include="wwwroot\.gitignore" />
-    <None Include="wwwroot\babel.config.js" />
-    <None Include="wwwroot\public\favicon.ico" />
-    <None Include="wwwroot\public\index.html" />
-    <None Include="wwwroot\src\App.vue" />
-    <None Include="wwwroot\src\assets\logo.png" />
-    <None Include="wwwroot\src\assets\logo.svg" />
-    <None Include="wwwroot\src\components\ContactList.vue" />
-    <None Include="wwwroot\src\components\HelloWorld.vue" />
-    <None Include="wwwroot\src\main.js" />
-    <None Include="wwwroot\src\plugins\vuetify.js" />
-    <None Include="wwwroot\src\router\index.js" />
-    <None Include="wwwroot\src\views\Home.vue" />
-    <None Include="wwwroot\src\views\Profile.vue" />
-    <None Include="wwwroot\vue.config.js" />
+    <Content Include="www\.browserslistrc" />
+    <Content Include="www\.eslintrc.js" />
+    <Content Include="www\.gitignore" />
+    <Content Include="www\babel.config.js" />
+    <Content Include="www\src\components\ContactList.vue" />
+    <Content Include="www\vue.config.js" />
   </ItemGroup>
 
   <ItemGroup>
