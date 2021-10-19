@@ -19,17 +19,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\.browserslistrc" />
+    <None Include="wwwroot\.eslintrc.js" />
+    <None Include="wwwroot\.gitignore" />
+    <None Include="wwwroot\babel.config.js" />
     <None Include="wwwroot\public\favicon.ico" />
     <None Include="wwwroot\public\index.html" />
     <None Include="wwwroot\src\App.vue" />
     <None Include="wwwroot\src\assets\logo.png" />
     <None Include="wwwroot\src\assets\logo.svg" />
+    <None Include="wwwroot\src\components\ContactList.vue" />
     <None Include="wwwroot\src\components\HelloWorld.vue" />
     <None Include="wwwroot\src\main.js" />
     <None Include="wwwroot\src\plugins\vuetify.js" />
     <None Include="wwwroot\src\router\index.js" />
     <None Include="wwwroot\src\views\Home.vue" />
     <None Include="wwwroot\src\views\Profile.vue" />
+    <None Include="wwwroot\vue.config.js" />
   </ItemGroup>
 
   <ItemGroup>
