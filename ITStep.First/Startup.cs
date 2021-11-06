@@ -1,6 +1,9 @@
+using ITStep.First.Models.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,11 +27,15 @@ namespace ITStep.First
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connection));
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+               .AddCookie(options =>
+               {
+                   options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Auth/Login");
+                   options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Auth/Login");
+               });
             services.AddControllersWithViews();
-            
-            var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole()) ;
-            ILogger logger = loggerFactory.CreateLogger<Startup>();
-            logger.LogInformation($"Count of Services {services.Count}");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,14 +65,18 @@ namespace ITStep.First
 
             app.UseRouting();
 
-            // app.UseAuthorization();
-            
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                
+                    pattern: "{controller=Home}/{action=Index}");
+                endpoints.MapControllerRoute(
+                    name: "auth",
+                    pattern: "{controller=Auth}/{action}");
+
             });
         }
     }

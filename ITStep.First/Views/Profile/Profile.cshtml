@@ -1,0 +1,51 @@
+﻿@using ITStep.First.Models;
+@using ITStep.First.Models.Entities;
+@model ProfileModel
+@{ Layout = null; }
+
+<h1 class="blog-name pt-lg-4 mb-0"><a asp-controller="Home" asp-action="Index">@Model.Title</a></h1>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navigation" class="collapse navbar-collapse flex-column">
+        <div class="profile-section pt-3 pt-lg-0">
+            <img class="profile-image mb-3 @*rounded-circle*@ mx-auto" src="@Model.Cover.Uri" alt="@Model.Cover.Alt">
+            <div class="bio mb-3"> @Model.Description </div>
+            <ul class="social-list list-inline py-3 mx-auto">
+                @foreach (var social in Model.Socials)
+                {
+                    string s = $"fab fa-{social.Name.ToLower()} fa-fw";
+        <li class="list-inline-item"><a href="@social.Url"><i class="@s"></i></a></li>
+}
+            </ul>
+            <hr>
+        </div><!--//profile-section-->
+
+        <ul class="navbar-nav flex-column text-left">
+            <li class="nav-item active">
+                <a class="nav-link" asp-controller="Home" asp-action="Index"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Home" asp-action="About"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+            </li>
+            @if (Model.IsAdmin)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="Edit"><i class="fa fa-cogs fa-fw mr-2"></i> Global profile settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="User" asp-action="Index"><i class="fa fa-users fa-fw mr-2"></i> Users &amp; Roles</a>
+                </li>}
+            @if (Model.IsAuthor || Model.IsAuthor)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Post" asp-action="GetMyPosts"><i class="material-icons mr-2">article </i> My Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Auth" asp-action="Logout"><i class="material-icons mr-2">article </i> Logout </a>
+                </li>
+            }
+        </ul>
+    </div>
+</nav>
