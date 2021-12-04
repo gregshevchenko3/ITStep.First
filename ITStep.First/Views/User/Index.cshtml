@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="main-wrapper">
+    <!--<div class="py-5">-->
+    @*<div class="container">*@
+    @*<div class="blog-post-body row justify-content-center">*@
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            DataTable Example
+        </div>
+        <div class="card-body">
+            <table id="datatablesSimple" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Email</th>
+                        <th>Login</th>
+                        <th>Name</th>
+                        <th>Locked</th>
+                        <th>CreatedAt</th>
+                        <th>UpdatedAt</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Email</th>
+                        <th>Login</th>
+                        <th>Name</th>
+                        <th>Locked</th>
+                        <th>CreatedAt</th>
+                        <th>UpdatedAt</th>
+                    </tr>
+                </tfoot>
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @*</div>*@
+</div>
+</div>
+@section Styles {
+    <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/css/tables.css" rel="stylesheet"/>
+}
+@section Scripts {
+    @*<script src="https://code.jquery.com/jquery-3.5.1.js"></script>*@
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+}
